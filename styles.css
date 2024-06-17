@@ -147,3 +147,15 @@ body {
     margin-bottom: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+button {
+    background-color:#88b2ff;
+    color: aliceblue;
+    border-radius: 1em; 
+}
+input {
+    background-color: #88b2ff;
+}
+.lista-mascotas h2 {
+    padding-top: 20px;
+}
