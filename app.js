@@ -81,18 +81,18 @@ function mostrarDetallesMascota(mascota) {
 // funcion ára asignarle una imagen a cada tipo de mascota
 function obtenerImagenMascota(tipo) {
     switch (tipo) {
-        case 'perro':
-            return 'https://i.pinimg.com/564x/34/6a/9e/346a9e4749e3e125efd67b41a487b306.jpg';
-        case 'gato':
-            return 'https://i.pinimg.com/564x/70/f8/1a/70f81ae6f408141cd36274d127b7d4f4.jpg';
-        case 'conejo':
-            return 'https://i.pinimg.com/736x/7f/43/e3/7f43e3e050b0e7b5d184961f539a434c.jpg';
-        case 'carpincho':
-            return 'https://i.pinimg.com/564x/e6/37/e0/e637e0d62f5644460649e7d2e5707ad5.jpg';
-        case 'hamster':
-            return 'https://i.pinimg.com/564x/75/7b/d0/757bd02f994c15b51b41d234444ebc42.jpg';
-        case 'oso':
-            return 'https://i.pinimg.com/564x/5c/db/81/5cdb815dbacce91181d7413ec5b0640c.jpg';
+        case 'dragon de fuego':
+            return 'https://static.wikia.nocookie.net/dragoncity/images/c/cd/Flame_Dragon_1.png/revision/latest?cb=20200602233653';
+        case 'dragon de agua':
+            return 'https://static.wikia.nocookie.net/dragoncity/images/c/cd/Sea_Dragon_1.png/revision/latest?cb=20130611042156';
+        case 'dragon nube':
+            return 'https://static.wikia.nocookie.net/dragoncity/images/f/f8/Cloud_Dragon_1.png/revision/latest?cb=20121017102829';
+        case 'dragon diente de leon':
+            return 'https://static.wikia.nocookie.net/dragoncity/images/f/ff/Dandelion_Dragon_1.png/revision/latest?cb=20130710092134';
+        case 'dragon fluorescente':
+            return 'https://static.wikia.nocookie.net/dragoncity/images/6/68/Fluorescent_Dragon_1.png/revision/latest?cb=20130709084051';
+        case 'dragon de tierra':
+            return 'https://static.wikia.nocookie.net/dragoncity/images/c/ca/Terra_Dragon_1.png/revision/latest?cb=20200605234519';
         default:
             return '';
     }
