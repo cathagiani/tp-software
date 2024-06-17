@@ -3,14 +3,14 @@ let mascotas = [];
 
 document.addEventListener('DOMContentLoaded', cargarMascotas);
 
-// funcion para adoptar una mascota
+// función para adoptar una mascota
 function adoptarMascota(mascota) {
     mascotaSeleccionada = mascota;
     document.getElementById('mensaje-adopcion').textContent = `Estás adoptando un ${mascota}. ¿Estás seguro de tu elección?`;
     document.getElementById('alerta-adopcion').classList.remove('oculto');
 }
 
-// funcion para confirmar la adopcion
+// función para confirmar la adopción
 function confirmarAdopcion(confirmar) {
     document.getElementById('alerta-adopcion').classList.add('oculto');
     if (confirmar) {
@@ -18,7 +18,7 @@ function confirmarAdopcion(confirmar) {
     }
 }
 
-// funcion para completar detalles de mascota nueva
+// función para completar detalles de mascota nueva
 function finalizarAdopcion() {
     const nombre = document.getElementById('nombre-mascota').value;
     const genero = document.getElementById('genero-mascota').value;
@@ -29,9 +29,9 @@ function finalizarAdopcion() {
     }
 
     const mascota = {
-        type: mascotaSeleccionada,
         name: nombre,
-        gender: genero
+        gender: genero,
+        type: mascotaSeleccionada
     };
 
     guardarMascota(mascota);
@@ -41,7 +41,7 @@ function finalizarAdopcion() {
     document.getElementById('form-de-adopcion').reset();
 }
 
-// funcion para mostrar los detalles de la mascota apenas se adopta
+// función para mostrar los detalles de la mascota al adoptarla
 function mostrarMascotaAdoptada(mascota) {
     document.getElementById('detalles-mascota').innerHTML = `
         Tipo: ${mascota.type}<br>
@@ -54,8 +54,7 @@ function mostrarMascotaAdoptada(mascota) {
     document.getElementById('mascota-adoptada').classList.remove('oculto');
 }
 
-
-// funcion para agregar mascota a la lista de mascotas
+// función para agregar mascota a la lista de mascotas
 function agregarMascotaALaLista(mascota) {
     const lista = document.getElementById('lista-mascotas');
     const item = document.createElement('li');
@@ -65,7 +64,7 @@ function agregarMascotaALaLista(mascota) {
     lista.appendChild(item);
 }
 
-// funcion para mostrar detalles de mascota al apretar el boton de su nombre
+// función para mostrar detalles de mascota al hacer clic en su nombre
 function mostrarDetallesMascota(mascota) {
     document.getElementById('detalles-ver-mascota').innerHTML = `
         Tipo: ${mascota.type}<br>
@@ -78,7 +77,7 @@ function mostrarDetallesMascota(mascota) {
     document.getElementById('ver-mascota').classList.remove('oculto');
 }
 
-// funcion ára asignarle una imagen a cada tipo de mascota
+// función para asignar una imagen a cada tipo de mascota
 function obtenerImagenMascota(tipo) {
     switch (tipo) {
         case 'dragon de fuego':
@@ -98,9 +97,9 @@ function obtenerImagenMascota(tipo) {
     }
 }
 
-// funcion para guardar mascota en la base de datos
+// función para guardar mascota en la base de datos
 function guardarMascota(mascota) {
-    fetch('http://localhost:3000/api/pets', {
+    fetch('http://localhost:5000/api/pets', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -118,14 +117,14 @@ function guardarMascota(mascota) {
     });
 }
 
-// funcion para cargar las mascotas guardadas
+// función para cargar las mascotas guardadas
 function cargarMascotas() {
-    fetch('http://localhost:3000/api/pets')
+    fetch('http://localhost:5000/api/pets')
     .then(response => response.json())
     .then(data => {
         mascotas = data.data;
         const lista = document.getElementById('lista-mascotas');
-        lista.innerHTML = '';  // Limpiar la lista antes de volver a cargar las mascotas
+        lista.innerHTML = '';  // Limpiar la lista antes de volver a cargar a las mascotas
 
         mascotas.forEach(mascota => {
             agregarMascotaALaLista(mascota);
