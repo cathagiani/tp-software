@@ -1,4 +1,5 @@
 body {
+    text-align: center;
     font-family: "Josefin Sans", sans-serif;
     background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/hd/1e79a561645499.5aa5558789b4d.jpg');
     margin: 0;
@@ -30,6 +31,7 @@ body {
 }
 
 .principal {
+    text-align:center;
     background-color: #62f0f0;
     padding: 20px;
     border-radius: 10px;
@@ -56,8 +58,8 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(46, 5, 28, 0.947);
-    width: 115px;
-    height: 160px;
+    width: 160px;
+    height: 200px;
 }	
 
 #alerta-adopcion {
@@ -183,6 +185,7 @@ input {
 }
 
 .granja {
+    text-align: center;
     background-color: #b2d9f468;
     padding: 20px;
     border-radius: 10px;
