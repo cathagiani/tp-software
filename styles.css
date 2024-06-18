@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Josefin Sans", sans-serif;
     background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/hd/1e79a561645499.5aa5558789b4d.jpg');
     margin: 0;
     padding: 20px;
@@ -11,18 +11,22 @@ body {
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    display: block;
 }
 
 .titulo h1 {
+    font-weight: 1000;
     color: rgb(85, 74, 235);
     font-size: 60px;
-    font-family: 'fantasy', copperplate;
+    font-family: "Fantasy", copperplate;
 }
 
 .titulo p {
     color: rgb(244, 236, 255);
     font-size: 20px;
-    font-family: 'fantasy', copperplate;
+    font-family: "Josefin Sans", copperplate;
 }
 
 .principal {
@@ -91,8 +95,13 @@ body {
 }
 
 .lista-mascotas {
+    display: block;
     background-color:rgb(146, 226, 255);
-    margin-top: 20px;   
+    margin-top: 20px;
+    padding: 1px;   
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 1em;
 }
 
 #lista-mascotas {
@@ -151,11 +160,35 @@ body {
 button {
     background-color:#88b2ff;
     color: aliceblue;
-    border-radius: 1em; 
+    border-radius: 2em; 
+    display: inline-block;
+    text-transform: uppercase;
 }
 input {
     background-color: #88b2ff;
 }
 .lista-mascotas h2 {
     padding-top: 20px;
+}
+.principal h2 {
+    display: block;
+    text-transform: uppercase;
+    padding-top: 1em;
+    text-align: center;
+    font-family: "Josefin Sans", sans-serif;
+}
+.lista-mascotas{
+    font-family: "Josefin Sans", sans-serif;
+}
+#mensaje-adopcion {
+    text-align: center;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 1.5em;
+    text-transform: uppercase;
+}
+
+#formulario-adopcion {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Josefin Sans", sans-serif;
 }
