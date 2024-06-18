@@ -170,25 +170,24 @@ input {
 .lista-mascotas h2 {
     padding-top: 20px;
 }
-.principal h2 {
-    display: block;
-    text-transform: uppercase;
-    padding-top: 1em;
-    text-align: center;
-    font-family: "Josefin Sans", sans-serif;
-}
-.lista-mascotas{
-    font-family: "Josefin Sans", sans-serif;
-}
-#mensaje-adopcion {
-    text-align: center;
-    font-family: "Josefin Sans", sans-serif;
-    font-size: 1.5em;
-    text-transform: uppercase;
+
+.granja {
+    background-color: #b2d9f468;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(46, 5, 28, 0.947);
 }
 
-#formulario-adopcion {
-    text-align: center;
-    text-transform: uppercase;
-    font-family: "Josefin Sans", sans-serif;
+.recoleccion-tomates {
+    background-color: #79c7ff9e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(46, 5, 28, 0.947);
+}
+
+.granja-tomates {
+    background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/65db5761645499.5a74d1b1d6679.jpg');
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(46, 5, 28, 0.947);
 }

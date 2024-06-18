@@ -1,7 +1,11 @@
 let mascotaSeleccionada = '';
 let mascotas = [];
+let cantidadTomates = 0;
 
-document.addEventListener('DOMContentLoaded', cargarMascotas);
+document.addEventListener('DOMContentLoaded', () => {
+    cargarMascotas();
+    cargarTomates();
+});
 
 // función para adoptar una mascota
 function adoptarMascota(mascota) {
@@ -129,6 +133,59 @@ function cargarMascotas() {
         mascotas.forEach(mascota => {
             agregarMascotaALaLista(mascota);
         });
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
+// función para cargar los tomates recolectados
+function cargarTomates() {
+    fetch('http://localhost:5000/api/tomates')
+   .then(response => response.json())
+   .then(data => {
+        cantidadTomates = data.total_tomates || 0;
+        document.getElementById("cantidad-tomates").textContent = `Tomates: ${cantidadTomates}`;
+    })
+   .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
+// función para recolectar tomates
+function recolectarTomates() {
+    const cantidad = 500;
+    fetch('http://localhost:5000/api/tomates', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ cantidad: cantidad })
+    })
+   .then(response => response.json())
+   .then(data => {
+        console.log(data);
+        cantidadTomates += cantidad;
+        document.getElementById("cantidad-tomates").textContent = `Tomates: ${cantidadTomates}`;
+    })
+   .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
+
+// función para guardar la cantidad de tomates recolectados
+function guardarTomates(cantidad) {
+    fetch('http://localhost:5000/api/tomates', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ cantidad: cantidad })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
     })
     .catch(error => {
         console.error('Error:', error);
