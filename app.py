@@ -7,12 +7,11 @@ app = Flask(__name__)
 CORS(app)
 
 # Configuración de la base de datos
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///mascotas.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://username:password@localhost/mascotas_db'
 app.config['SQLALCHEMY_BINDS'] = {
-    'granja': 'sqlite:///granja.db'
+    'granja': 'postgresql://username:password@localhost/granja_db'
 }
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SECRET_KEY'] = 'your_secret_key'
 
 db = SQLAlchemy(app)
 
@@ -67,10 +66,17 @@ def add_pet():
 @app.route('/api/tomates', methods=['GET'])
 def obtener_tomates():
     try:
+        print("Entering obtener_tomates function")
         tomate = Tomate.query.first()
-        total = tomate.cantidad if tomate else 0
+        print("Tomate:", tomate)
+        if tomate:
+            total = tomate.cantidad
+        else:
+            total = 0
+        print("Total tomates:", total)
         return jsonify({'total_tomates': total}), 200
     except Exception as e:
+        print("Error:", e)
         return jsonify({'error': str(e)}), 400
 
 @app.route('/api/tomates', methods=['POST'])
