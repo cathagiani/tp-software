@@ -92,6 +92,7 @@ def editar_mascota(id):
        if mascota:
            mascota.name = nombre
            mascota.type = tipo
+           mascota.gender = genero
            db.session.commit()
            return jsonify({
                'message': 'Mascota editada correctamente',

@@ -106,6 +106,18 @@ function obtenerImagenMascota(tipo) {
             return 'https://static.wikia.nocookie.net/dragoncity/images/6/68/Fluorescent_Dragon_1.png/revision/latest?cb=20130709084051';
         case 'dragon de tierra':
             return 'https://static.wikia.nocookie.net/dragoncity/images/c/ca/Terra_Dragon_1.png/revision/latest?cb=20200605234519';
+        case 'dragon legado':
+           return 'https://static.wikia.nocookie.net/dragoncity/images/b/b4/Legendario_1.png/revision/latest?cb=20140130011033&path-prefix=es';
+        case 'dragon espejo':
+           return 'https://dci-static-s1.socialpointgames.com/static/dragoncity/mobile/ui/dragons/ui_1054_dragon_mirror_c_1@2x.png';
+        case 'dragon cristal':
+            return 'https://dci-static-s1.socialpointgames.com/static/dragoncity/mobile/ui/dragons/ui_1052_dragon_crystal_b_1@2x.png';
+        case 'dragon diluvio':
+            return 'https://dci-static-s1.socialpointgames.com/static/dragoncity/mobile/ui/dragons/ui_2536_dragon_deluge_b_1@2x.png';
+        case 'dragon kratus':
+            return 'https://www.ditlep.com/image?m=dragons/ui_1191_dragon_kratus_b_1.png';
+        case 'dragon abismo':
+            return 'https://dci-static-s1.socialpointgames.com/static/dragoncity/mobile/ui/dragons/ui_1315_dragon_abyss_1@2x.png';
         default:
             return '';
     }
@@ -194,6 +206,7 @@ function eliminarDragon(button) {
  
     document.getElementById('editar-nombre').value = mascota.name;
     document.getElementById('editar-genero').value = mascota.gender;
+    document.getElementById('editar-tipo').value = mascota.type;
  
  
     // Mostrar el formulario de edición
