@@ -18,6 +18,8 @@
     </div>
     <div class="principal">
         <h2>¿Qué dragón le gustaría adoptar hoy?</h2>
+    <div class="categoria">    
+        <h7>Dragones Comunes</h7>
         <div class="opciones-mascota">
             <div class="opciones-mascota" onclick="adoptarMascota('dragon de fuego')">
                 <div class="dragon">
@@ -66,6 +68,59 @@
                         Adoptar un dragon de tierra
                     </div> 
                 </div>
+            </div>  
+        </div>
+    </div>       
+    <div class="categoria">  
+        <h8>Dragones Premium</h8>
+        <div class="opciones-mascota">
+            <div class="opciones-mascota" onclick="adoptarMascota('dragon legado')">
+                <div class="dragon">
+                    <img src="https://static.wikia.nocookie.net/dragoncity/images/b/b4/Legendario_1.png/revision/latest?cb=20140130011033&path-prefix=es" alt="dragon legado" class="imagen-mascota">  
+                    <div>
+                        Adoptar un dragon legado
+                    </div> 
+                </div>
+            </div>
+            <div class="opciones-mascota" onclick="adoptarMascota('dragon espejo')">
+                <div class="dragon">
+                    <img src="https://dci-static-s1.socialpointgames.com/static/dragoncity/mobile/ui/dragons/ui_1054_dragon_mirror_c_1@2x.png" alt="dragon espejo" class="imagen-mascota">  
+                    <div>
+                        Adoptar un dragon espejo
+                    </div> 
+                </div>
+            </div>
+            <div class="opciones-mascota" onclick="adoptarMascota('dragon cristal')">
+                <div class="dragon">
+                    <img src="https://dci-static-s1.socialpointgames.com/static/dragoncity/mobile/ui/dragons/ui_1052_dragon_crystal_b_1@2x.png" alt="dragon cristal" class="imagen-mascota">  
+                    <div>
+                        Adoptar un dragon cristal
+                    </div> 
+                </div>
+            </div>
+            <div class="opciones-mascota" onclick="adoptarMascota('dragon diluvio')">
+                <div class="dragon">
+                    <img src="https://dci-static-s1.socialpointgames.com/static/dragoncity/mobile/ui/dragons/ui_2536_dragon_deluge_b_1@2x.png" alt="dragon diluvio" class="imagen-mascota">  
+                    <div>
+                        Adoptar un dragon diluvio
+                    </div> 
+                </div>
+            </div>
+            <div class="opciones-mascota" onclick="adoptarMascota('dragon kratus')">
+                <div class="dragon">
+                    <img src="https://www.ditlep.com/image?m=dragons/ui_1191_dragon_kratus_b_1.png" alt="dragon kratus" class="imagen-mascota">  
+                    <div>
+                        Adoptar un dragon kratus
+                    </div> 
+                </div>
+            </div>
+            <div class="opciones-mascota" onclick="adoptarMascota('dragon abismo')">
+                <div class="dragon">
+                    <img src="https://dci-static-s1.socialpointgames.com/static/dragoncity/mobile/ui/dragons/ui_1315_dragon_abyss_1@2x.png" alt="dragon abismo" class="imagen-mascota">  
+                    <div>
+                        Adoptar un dragon abismo
+                    </div> 
+                </div>
             </div>
         </div>
     </div>
@@ -73,7 +128,6 @@
         <p id="mensaje-adopcion"></p>
         <button type="button" class="btn btn-outline-primary" onclick="confirmarAdopcion(true)">Sí</button>
         <button type="button" class="btn btn-outline-primary" onclick="confirmarAdopcion(false)">No</button>
-        
     </div>
     <div id="formulario-adopcion" class="oculto">
         <h3>¡Personaliza tu nueva mascota!</h3>
@@ -111,6 +165,22 @@
         <h3>Detalles de la Mascota</h3>
         <p id="detalles-ver-mascota"></p>
         <img id="imagen-ver-mascota" src="" alt="Detalles de la mascota">
+        <button type="button" class="btn btn-outline-primary" id="boton-eliminar" onclick="eliminarDragon(this)">Eliminar</button>
+        <button type="button" class="btn btn-outline-secondary" id="boton-editar" onclick="mostrarFormularioEdicion()">Editar datos</button>
+        <div id="formulario-edicion" class="oculto">
+            <h3>Editar Detalles de la Mascota</h3>
+            <form id="form-edicion">
+                <label for="editar-nombre">Nombre:</label>
+                <input type="text" id="editar-nombre" name="nombre"><br>
+                <label for="editar-genero">Género:</label>
+                <select id="editar-genero">
+                    <option value="Masculino">Masculino</option>
+                    <option value="Femenino">Femenino</option>
+                </select><br>
+                <button type="button" class="btn btn-outline-success" id="boton-confirmar-cambios" onclick="confirmarEdicion(this)">Confirmar Cambios</button>
+            </form>
+        </div>
+       
     </div>
 </body>
 </html>

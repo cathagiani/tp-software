@@ -38,6 +38,18 @@ body {
     box-shadow: 0 0 10px rgba(46, 5, 28, 0.947);
 }
 
+.categoria h7{
+    font-weight: 1000;
+    color: rgb(3, 0, 0);
+    font-size: 30px;
+}
+
+.categoria h8{
+    font-weight: 1000;
+    color: rgb(3, 0, 0);
+    font-size: 30px;
+}
+
 .opciones-mascota {
     display: flex;
     justify-content: center;
