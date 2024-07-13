@@ -18,6 +18,8 @@
     </div>
     <div class="principal">
         <h2>¿Qué dragón le gustaría adoptar hoy?</h2>
+    <div class="categoria">    
+        <h7>Dragones Comunes</h7>
         <div class="opciones-mascota">
             <div class="opciones-mascota" onclick="adoptarMascota('dragon de fuego')">
                 <div class="dragon">
@@ -66,6 +68,59 @@
                         Adoptar un dragon de tierra
                     </div> 
                 </div>
+            </div>  
+        </div>
+    </div>       
+    <div class="categoria">  
+        <h8>Dragones Premium</h8>
+        <div class="opciones-mascota">
+            <div class="opciones-mascota" onclick="adoptarMascota('dragon legado')">
+                <div class="dragon">
+                    <img src="https://static.wikia.nocookie.net/dragoncity/images/b/b4/Legendario_1.png/revision/latest?cb=20140130011033&path-prefix=es" alt="dragon legado" class="imagen-mascota">  
+                    <div>
+                        Adoptar un dragon legado
+                    </div> 
+                </div>
+            </div>
+            <div class="opciones-mascota" onclick="adoptarMascota('dragon espejo')">
+                <div class="dragon">
+                    <img src="https://dci-static-s1.socialpointgames.com/static/dragoncity/mobile/ui/dragons/ui_1054_dragon_mirror_c_1@2x.png" alt="dragon espejo" class="imagen-mascota">  
+                    <div>
+                        Adoptar un dragon espejo
+                    </div> 
+                </div>
+            </div>
+            <div class="opciones-mascota" onclick="adoptarMascota('dragon cristal')">
+                <div class="dragon">
+                    <img src="https://dci-static-s1.socialpointgames.com/static/dragoncity/mobile/ui/dragons/ui_1052_dragon_crystal_b_1@2x.png" alt="dragon cristal" class="imagen-mascota">  
+                    <div>
+                        Adoptar un dragon cristal
+                    </div> 
+                </div>
+            </div>
+            <div class="opciones-mascota" onclick="adoptarMascota('dragon diluvio')">
+                <div class="dragon">
+                    <img src="https://dci-static-s1.socialpointgames.com/static/dragoncity/mobile/ui/dragons/ui_2536_dragon_deluge_b_1@2x.png" alt="dragon diluvio" class="imagen-mascota">  
+                    <div>
+                        Adoptar un dragon diluvio
+                    </div> 
+                </div>
+            </div>
+            <div class="opciones-mascota" onclick="adoptarMascota('dragon kratus')">
+                <div class="dragon">
+                    <img src="https://www.ditlep.com/image?m=dragons/ui_1191_dragon_kratus_b_1.png" alt="dragon kratus" class="imagen-mascota">  
+                    <div>
+                        Adoptar un dragon kratus
+                    </div> 
+                </div>
+            </div>
+            <div class="opciones-mascota" onclick="adoptarMascota('dragon abismo')">
+                <div class="dragon">
+                    <img src="https://dci-static-s1.socialpointgames.com/static/dragoncity/mobile/ui/dragons/ui_1315_dragon_abyss_1@2x.png" alt="dragon abismo" class="imagen-mascota">  
+                    <div>
+                        Adoptar un dragon abismo
+                    </div> 
+                </div>
             </div>
         </div>
     </div>
@@ -73,7 +128,6 @@
         <p id="mensaje-adopcion"></p>
         <button type="button" class="btn btn-outline-primary" onclick="confirmarAdopcion(true)">Sí</button>
         <button type="button" class="btn btn-outline-primary" onclick="confirmarAdopcion(false)">No</button>
-        
     </div>
     <div id="formulario-adopcion" class="oculto">
         <h3>¡Personaliza tu nueva mascota!</h3>
