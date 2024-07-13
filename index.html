@@ -165,6 +165,22 @@
         <h3>Detalles de la Mascota</h3>
         <p id="detalles-ver-mascota"></p>
         <img id="imagen-ver-mascota" src="" alt="Detalles de la mascota">
+        <button type="button" class="btn btn-outline-primary" id="boton-eliminar" onclick="eliminarDragon(this)">Eliminar</button>
+        <button type="button" class="btn btn-outline-secondary" id="boton-editar" onclick="mostrarFormularioEdicion()">Editar datos</button>
+        <div id="formulario-edicion" class="oculto">
+            <h3>Editar Detalles de la Mascota</h3>
+            <form id="form-edicion">
+                <label for="editar-nombre">Nombre:</label>
+                <input type="text" id="editar-nombre" name="nombre"><br>
+                <label for="editar-genero">Género:</label>
+                <select id="editar-genero">
+                    <option value="Masculino">Masculino</option>
+                    <option value="Femenino">Femenino</option>
+                </select><br>
+                <button type="button" class="btn btn-outline-success" id="boton-confirmar-cambios" onclick="confirmarEdicion(this)">Confirmar Cambios</button>
+            </form>
+        </div>
+       
     </div>
 </body>
 </html>
