@@ -62,6 +62,46 @@ def add_pet():
     except Exception as e:
         return jsonify({'error': str(e)}), 400
 
+
+# Ruta eliminar una mascota por ID
+@app.route('/api/pets/<int:id>', methods=['DELETE'])
+def eliminar_mascota(id):
+   try:
+       mascota = Pet.query.get(id)
+       if mascota:
+           db.session.delete(mascota)
+           db.session.commit()
+           return jsonify({'message': 'Mascota eliminada correctamente'}), 200
+       else:
+           return jsonify({'error': 'No se encontró ninguna mascota con ese ID'}), 404
+   except Exception as e:
+       return jsonify({'error': str(e)}), 400
+
+
+# Ruta para editar una mascota por su ID
+@app.route('/api/pets/<int:id>', methods=['PUT'])
+def editar_mascota(id):
+   try:
+       data = request.json
+       nombre = data.get('name')
+       genero = data.get('gender')
+       tipo = data.get('type')
+
+
+       mascota = Pet.query.get(id)
+       if mascota:
+           mascota.name = nombre
+           mascota.type = tipo
+           db.session.commit()
+           return jsonify({
+               'message': 'Mascota editada correctamente',
+               'data': {'id': mascota.id, 'name': nombre, 'gender': genero, 'type': tipo}
+           }), 200
+       else:
+           return jsonify({'error': 'No se encontró ninguna mascota con ese ID'}), 404
+   except Exception as e:
+       return jsonify({'error': str(e)}), 400
+
 # Rutas para los tomates
 @app.route('/api/tomates', methods=['GET'])
 def obtener_tomates():
