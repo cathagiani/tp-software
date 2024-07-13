@@ -18,9 +18,63 @@
         <p>¡Centro de adopción y cuidado de dragones!</p>
     </div>
     <div class="btn-group" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-outline-primary">Granja de Tomates</button>
-        <button type="button" class="btn btn-outline-primary">Tus Mascotas</button>
+        <button onclick="mostrarSeccion('granja')">Granja de Tomates</button>
+        <button onclick="mostrarSeccion('lista-mascotas-adoptadas')">Tus Mascotas</button>
     </div>
+
+    <div id="granja" class="oculto">
+        <h2>Granja de tomates</h2>
+        <div class="recoleccion-tomates">
+            <button onclick="recolectarTomates()"><img src="https://static.wikia.nocookie.net/dragoncity/images/c/c0/Deus_food.png/revision/latest?cb=20200601201923" style="width:25px; height:25px;">Recolectar Tomates</button>
+            <p id="cantidad-tomates">tus tomates: 0</p>
+            <div class="granja-tomates">
+                <img src="https://dragoncityguia.wordpress.com/wp-content/uploads/2013/10/farm_3.png">
+            </div>
+        </div>
+        <button onclick="cerrarSeccion('granja')">Cerrar Granja de Tomates</button>
+    </div>
+
+    <div id="lista-mascotas-adoptadas" class="oculto">
+        <h2>Tus Mascotas Adoptadas</h2>
+        <ul id="lista-mascotas"></ul>            
+        <button onclick="cerrarSeccion('lista-mascotas-adoptadas')">Cerrar Tus Mascotas</button>
+    </div>
+
+    <div id="ver-mascota" class="oculto">
+        <h3>Detalles de la Mascota</h3>
+            <p id="detalles-ver-mascota"></p>
+            <img id="imagen-ver-mascota" src="" alt="Detalles de la mascota">
+            <br>
+            <button type="button" class="btn btn-outline-primary" id="boton-eliminar" onclick="eliminarDragon(this)">Eliminar</button>
+            <br>
+            <button type="button" class="btn btn-outline-secondary" id="boton-editar" onclick="mostrarFormularioEdicion(this)">Editar datos</button>
+            <div id="formulario-edicion" class="oculto">
+                <h3>Editar Detalles de la Mascota</h3>
+                    <form id="form-edicion">
+                        <label for="editar-nombre">Nombre:</label>
+                        <input type="text" id="editar-nombre" name="nombre"><br>
+                        <label for="editar-genero">Género:</label>
+                        <select id="editar-genero" name ="genero">
+                            <option value="Masculino">Masculino</option>
+                            <option value="Femenino">Femenino</option>
+                        </select><br>
+                        <label for="editar-tipo">Tipo:</label>
+                        <select id="editar-tipo" name ="tipo">
+                            <option value="dragon de fuego">Dragon de fuego</option>
+                            <option value="dragon de agua">Dragon de agua</option>
+                            <option value="dragon nube">Dragon nube</option>
+                            <option value="dragon diente de leon">Dragon diente de leon</option>
+                            <option value="dragon fluorescente">Dragon fluorescente</option>
+                            <option value="dragon de tierra">Dragon de tierra</option>
+                        </select><br>
+                        <button type="button" class="btn btn-outline-success" id="boton-confirmar-cambios" onclick="confirmarEdicion(this)">Confirmar Cambios</button>
+                    </form>
+            </div>
+            <br>
+            <button onclick="cerrarSeccion('ver-mascota')">Cerrar Dragon</button>
+
+    </div>
+
 
     <div class="principal">
         <h2>¿Qué dragón le gustaría adoptar hoy?</h2>
@@ -147,57 +201,12 @@
             </select><br><br> 
             <button type="button" class="btn btn-outline-primary" onclick="finalizarAdopcion()">Adoptar</button>          
         </form>
-    </div>
-    <div class="granja">
-        <h2>Granja de tomates</h2>
-        <div class="recoleccion-tomates">
-            <button onclick="recolectarTomates()"><img src="https://static.wikia.nocookie.net/dragoncity/images/c/c0/Deus_food.png/revision/latest?cb=20200601201923" style="width:25px; height:25px;">Recolectar Tomates</button>
-            <p id="cantidad-tomates">tus tomates: 0</p>
-            <div class="granja-tomates">
-                <img src="https://dragoncityguia.wordpress.com/wp-content/uploads/2013/10/farm_3.png">
-            </div>
-        </div>
-    </div>
+        <button onclick="cerrarSeccion('formulario-adopcion')">Cancelar adopcion</button>
+    </div>    
     <div id="mascota-adoptada" class="oculto">
         <h3>¡Felicitaciones por tu nueva mascota!</h3>
         <p id="detalles-mascota"></p>
         <img id="imagen-mascota-adoptada" src="" alt="Tu nueva mascota">
-    </div>
-    <div class="lista-mascotas">
-        <h2>Tus Mascotas Adoptadas</h2>
-        <ul id="lista-mascotas"></ul>
-    </div>
-    <div id="ver-mascota" class="oculto">
-        <h3>Detalles de la Mascota</h3>
-        <p id="detalles-ver-mascota"></p>
-        <img id="imagen-ver-mascota" src="" alt="Detalles de la mascota">
-        <br>
-        <button type="button" class="btn btn-outline-primary" id="boton-eliminar" onclick="eliminarDragon(this)">Eliminar</button>
-        <br>
-        <button type="button" class="btn btn-outline-secondary" id="boton-editar" onclick="mostrarFormularioEdicion()">Editar datos</button>
-        <div id="formulario-edicion" class="oculto">
-            <h3>Editar Detalles de la Mascota</h3>
-            <form id="form-edicion">
-                <label for="editar-nombre">Nombre:</label>
-                <input type="text" id="editar- nombre" name="nombre"><br>
-                <label for="editar-genero">Género:</label>
-                <select id="editar-genero" name ="genero">
-                    <option value="Masculino">Masculino</option>
-                    <option value="Femenino">Femenino</option>
-                </select><br>
-                <label for="editar-tipo">Tipo:</label>
-                <select id="editar-tipo" name ="tipo">
-                    <option value="dragon de fuego">Dragon de fuego</option>
-                    <option value="dragon de agua">Dragon de agua</option>
-                    <option value="dragon nube">Dragon nube</option>
-                    <option value="dragon diente de leon">Dragon diente de leon</option>
-                    <option value="dragon fluorescente">Dragon fluorescente</option>
-                    <option value="dragon de tierra">Dragon de tierra</option>
-                </select><br>
-                <button type="button" class="btn btn-outline-success" id="boton-confirmar-cambios" onclick="confirmarEdicion(this)">Confirmar Cambios</button>
-            </form>
-        </div>
-       
     </div>
 </body>
 </html>

@@ -119,8 +119,7 @@ body {
     margin-top: 20px;
 }
 
-.lista-mascotas {
-    display: block;
+#lista-mascotas-adoptadas {
     background-color:rgb(146, 226, 255);
     margin-top: 20px;
     padding: 1px;   
@@ -136,6 +135,7 @@ body {
 }
 
 #ver-mascota {
+    text-align: center;
     background-color: #ffffff9a;
     padding: 10px;
     border-radius: 10px;
@@ -151,7 +151,7 @@ body {
     cursor: pointer;
 }
 
-.lista-mascotas-item {
+#lista-mascotas-adoptadas li{
     cursor: pointer;
     margin-bottom: 5px;
     padding: 10px;
@@ -162,7 +162,7 @@ body {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-.lista-mascotas-item:hover {
+#lista-mascotas-adoptadas li:hover {
     background-color: #fff36e;
 }
 
@@ -192,11 +192,11 @@ button {
 input {
     background-color: #88b2ff;
 }
-.lista-mascotas h2 {
+#lista-mascotas-adoptadas h2 {
     padding-top: 20px;
 }
 
-.granja {
+#granja {
     text-align: center;
     background-color: #b2d9f468;
     padding: 20px;
@@ -217,12 +217,17 @@ input {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(46, 5, 28, 0.947);
 }
+
 .btn-group {
+    display: flex;
+    justify-content: center;
     width: 100%;
     background-color: rgba(96, 197, 255, 0.8);
     display: block;
 }
+
 .btn-group button {
+    text-align: center;
     border-color: transparent;
     background-color: rgba(96, 197, 255, 0.8);
     font-weight: 5em;

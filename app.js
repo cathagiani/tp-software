@@ -7,11 +7,30 @@ document.addEventListener('DOMContentLoaded', () => {
     cargarTomates();
 });
 
+// funcion para mostrar las secciones segun el click en el navbar
+function mostrarSeccion(seccion) {
+    // Ocultar todas las secciones
+    document.querySelectorAll('div[id]').forEach(div => {
+        div.classList.add('oculto');
+    });
+
+    // mostrar la seleccionada
+    document.getElementById(seccion).classList.remove('oculto');
+}
+
+
+// funcion para mostrar las secciones segun el click en el navbar
+function cerrarSeccion(seccion) {
+    // cerrar la seccion
+    document.getElementById(seccion).classList.add('oculto');
+}
+
+
 // función para adoptar una mascota
 function adoptarMascota(mascota) {
     mascotaSeleccionada = mascota;
     document.getElementById('mensaje-adopcion').textContent = `Estás adoptando un ${mascota}. ¿Estás seguro de tu elección?`;
-    document.getElementById('alerta-adopcion').classList.remove('oculto');
+    document.getElementById('alerta-adopcion').classList.remove('oculto'); 
 }
 
 // función para confirmar la adopción
@@ -82,12 +101,12 @@ function mostrarDetallesMascota(mascota) {
 
     // Asigna el ID de la mascota al botón de eliminar
     const botonEliminar = document.getElementById('boton-eliminar');
-   botonEliminar.setAttribute('data-id', mascota.id);
+    botonEliminar.setAttribute('data-id', mascota.id);
 
 
-   // Asignar el ID de la mascota al formulario de edición
-   const formularioEdicion = document.getElementById('formulario-edicion');
-   formularioEdicion.setAttribute('data-id', mascota.id);
+    // Asignar el ID de la mascota al formulario de edición
+    const formularioEdicion = document.getElementById('formulario-edicion');
+    formularioEdicion.setAttribute('data-id', mascota.id);
   
 }
 
