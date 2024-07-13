@@ -217,3 +217,13 @@ input {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(46, 5, 28, 0.947);
 }
+.btn-group {
+    width: 100%;
+    background-color: rgba(96, 197, 255, 0.8);
+    display: block;
+}
+.btn-group button {
+    border-color: transparent;
+    background-color: rgba(96, 197, 255, 0.8);
+    font-weight: 5em;
+}
