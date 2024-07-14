@@ -21,6 +21,10 @@
         <button onclick="mostrarSeccion('granja')">Granja de Tomates</button>
         <button onclick="mostrarSeccion('lista-mascotas-adoptadas')">Tus Mascotas</button>
     </div>
+    <div class="titulo">
+        <p id="cantidad-tomates-usuario"></p>
+        <p id="cantidad-tomates-dragon"></p>
+    </div>
 
     <div id="granja" class="oculto">
         <h2>Granja de tomates</h2>
@@ -45,6 +49,8 @@
             <p id="detalles-ver-mascota"></p>
             <img id="imagen-ver-mascota" src="" alt="Detalles de la mascota">
             <br>
+            <button onclick="alimentarDragon(this)">Alimentar Dragón</button>
+            <br>
             <button type="button" class="btn btn-outline-primary" id="boton-eliminar" onclick="eliminarDragon(this)">Eliminar</button>
             <br>
             <button type="button" class="btn btn-outline-secondary" id="boton-editar" onclick="mostrarFormularioEdicion(this)">Editar datos</button>
@@ -63,8 +69,8 @@
                             <option value="dragon de fuego">Dragon de fuego</option>
                             <option value="dragon de agua">Dragon de agua</option>
                             <option value="dragon nube">Dragon nube</option>
-                            <option value="dragon diente de leon">Dragon diente de leon</option>
-                            <option value="dragon fluorescente">Dragon fluorescente</option>
+                            <option value="dragon pulga messi">Dragon pulga messi</option>
+                            <option value="dragon electrico">Dragon electrico</option>
                             <option value="dragon de tierra">Dragon de tierra</option>
                         </select><br>
                         <button type="button" class="btn btn-outline-success" id="boton-confirmar-cambios" onclick="confirmarEdicion(this)">Confirmar Cambios</button>

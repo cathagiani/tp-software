@@ -8,9 +8,6 @@ CORS(app)
 
 # Configuración de la base de datos
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://username:password@localhost/mascotas_db'
-app.config['SQLALCHEMY_BINDS'] = {
-    'granja': 'postgresql://username:password@localhost/granja_db'
-}
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
@@ -22,13 +19,20 @@ class Pet(db.Model):
     name = db.Column(db.String(80), nullable=False)
     gender = db.Column(db.String(10), nullable=False)
     type = db.Column(db.String(50), nullable=False)
+    tomatoes = db.relationship('TomateDragon', backref='pet', lazy=True)
 
 # Modelo para tomates
 class Tomate(db.Model):
-    __bind_key__ = 'granja'
     __tablename__ = 'tomates'
     id = db.Column(db.Integer, primary_key=True)
     cantidad = db.Column(db.Integer, default=0)
+
+class TomateDragon(db.Model):
+    __tablename__ = 'tomates_dragon'
+    id = db.Column(db.Integer, primary_key=True)
+    cantidad = db.Column(db.Integer, default=0)
+    pet_id = db.Column(db.Integer, db.ForeignKey('pets.id'), nullable=False)
+
 
 # Crear las tablas
 with app.app_context():
@@ -39,7 +43,7 @@ with app.app_context():
 def get_pets():
     try:
         pets = Pet.query.all()
-        return jsonify({'data': [{'id': pet.id, 'name': pet.name, 'gender': pet.gender, 'type': pet.type} for pet in pets]})
+        return jsonify({'data': [{'id': pet.id, 'name': pet.name, 'gender': pet.gender, 'type': pet.type, 'tomatoes': [{'id': t.id, 'cantidad': t.cantidad} for t in pet.tomatoes]} for pet in pets]})
     except Exception as e:
         return jsonify({'error': str(e)}), 400
 
@@ -53,6 +57,11 @@ def add_pet():
 
         new_pet = Pet(name=name, gender=gender, type=type)
         db.session.add(new_pet)
+        db.session.commit()
+
+        # Crear tabla de tomates para el nuevo dragón
+        new_tomate_dragon = TomateDragon(cantidad=0, pet_id=new_pet.id)
+        db.session.add(new_tomate_dragon)
         db.session.commit()
 
         return jsonify({
@@ -137,6 +146,32 @@ def actualizar_tomates():
         return jsonify({'message': 'Tomates actualizados correctamente'}), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 400
+
+
+@app.route('/api/alimentar', methods=['POST'])
+def alimentar_dragon():
+    try:
+        data = request.json
+        pet_id = data.get('pet_id')
+        cantidad = 500
+
+        tomate = Tomate.query.first()
+        if not tomate or tomate.cantidad < cantidad:
+            return jsonify({'error': 'No tienes suficientes tomates'}), 400
+
+        tomate_dragon = TomateDragon.query.filter_by(pet_id=pet_id).first()
+        if not tomate_dragon:
+            return jsonify({'error': 'Dragón no encontrado'}), 404
+
+        tomate.cantidad -= cantidad
+        tomate_dragon.cantidad += cantidad
+
+        db.session.commit()
+
+        return jsonify({'message': 'Dragón alimentado correctamente', 'tomates': tomate.cantidad, 'tomates_dragon': tomate_dragon.cantidad}), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 400
+
 
 if __name__ == '__main__':
     app.run(debug=True)

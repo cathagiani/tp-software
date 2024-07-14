@@ -54,7 +54,8 @@ function finalizarAdopcion() {
     const mascota = {
         name: nombre,
         gender: genero,
-        type: mascotaSeleccionada
+        type: mascotaSeleccionada,
+        tomato: 0, 
     };
 
     guardarMascota(mascota);
@@ -165,19 +166,19 @@ function guardarMascota(mascota) {
 // función para cargar las mascotas guardadas
 function cargarMascotas() {
     fetch('http://localhost:5000/api/pets')
-    .then(response => response.json())
-    .then(data => {
-        mascotas = data.data;
-        const lista = document.getElementById('lista-mascotas');
+        .then(response => response.json())
+        .then(data => {
+                mascotas = data.data;
+                const lista = document.getElementById('lista-mascotas');
         lista.innerHTML = '';  // Limpiar la lista antes de volver a cargar a las mascotas
 
-        mascotas.forEach(mascota => {
-            agregarMascotaALaLista(mascota);
+                mascotas.forEach(mascota => {
+                    agregarMascotaALaLista(mascota);
+                });
+        })
+        .catch(error => {
+            console.error('Error:', error);
         });
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
 }
 
 
@@ -325,6 +326,28 @@ function guardarTomates(cantidad) {
     .then(response => response.json())
     .then(data => {
         console.log(data);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
+function alimentarDragon() {
+    const pet_id = document.getElementById('formulario-edicion').getAttribute('data-id');
+
+    fetch('http://localhost:5000/api/alimentar', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ pet_id: pet_id })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        // Actualizar la cantidad de tomates en la interfaz
+        document.getElementById('cantidad-tomates-usuario').textContent = `Tomates: ${data.tomates}`;
+        document.getElementById('cantidad-tomates-dragon').textContent = `Tomates: ${data.tomates_dragon}`;
     })
     .catch(error => {
         console.error('Error:', error);
