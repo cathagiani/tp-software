@@ -17,6 +17,15 @@ body {
     display: block;
 }
 
+#tomates_ver {
+    background-color: rgba(96, 197, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
 .titulo h1 {
     font-weight: 1000;
     color: rgb(85, 74, 235);

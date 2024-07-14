@@ -9,11 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // funcion para mostrar las secciones segun el click en el navbar
 function mostrarSeccion(seccion) {
-    // Ocultar todas las secciones
-    document.querySelectorAll('div[id]').forEach(div => {
-        div.classList.add('oculto');
-    });
-
     // mostrar la seleccionada
     document.getElementById(seccion).classList.remove('oculto');
 }
@@ -23,6 +18,16 @@ function mostrarSeccion(seccion) {
 function cerrarSeccion(seccion) {
     // cerrar la seccion
     document.getElementById(seccion).classList.add('oculto');
+}
+
+function mostrarSeccionYOcultarOtras(seccion) {
+    // Ocultar todas las secciones
+    document.querySelectorAll('div[id]').forEach(div => {
+        div.classList.add('oculto');
+    });
+    
+    // mostrar la seleccionada
+    document.getElementById(seccion).classList.remove('oculto');
 }
 
 
@@ -326,28 +331,6 @@ function guardarTomates(cantidad) {
     .then(response => response.json())
     .then(data => {
         console.log(data);
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
-}
-
-function alimentarDragon() {
-    const pet_id = document.getElementById('formulario-edicion').getAttribute('data-id');
-
-    fetch('http://localhost:5000/api/alimentar', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ pet_id: pet_id })
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log(data);
-        // Actualizar la cantidad de tomates en la interfaz
-        document.getElementById('cantidad-tomates-usuario').textContent = `Tomates: ${data.tomates}`;
-        document.getElementById('cantidad-tomates-dragon').textContent = `Tomates: ${data.tomates_dragon}`;
     })
     .catch(error => {
         console.error('Error:', error);
