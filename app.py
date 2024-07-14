@@ -78,6 +78,9 @@ def eliminar_mascota(id):
    try:
        mascota = Pet.query.get(id)
        if mascota:
+           # Eliminar todos los TomateDragon relacionados
+           for tomate_dragon in mascota.tomatoes:
+               db.session.delete(tomate_dragon)
            db.session.delete(mascota)
            db.session.commit()
            return jsonify({'message': 'Mascota eliminada correctamente'}), 200
