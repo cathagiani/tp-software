@@ -353,3 +353,42 @@ function alimentarDragon() {
         console.error('Error:', error);
     });
 }
+
+function alimentarDragon() {
+    const pet_id = document.getElementById('formulario-edicion').getAttribute('data-id');
+
+    fetch('http://localhost:5000/api/alimentar', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ pet_id: pet_id })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+
+        // Manejar cantidad de tomates del usuario
+        let cantidadTomatesUsuario = 0;
+        if (data.tomates !== undefined) {
+            cantidadTomatesUsuario = data.tomates;
+        }
+
+        // Manejar cantidad de tomates del dragón
+        let cantidadTomatesDragon = 0;
+        if (data.tomates_dragon !== undefined) {
+            cantidadTomatesDragon = data.tomates_dragon;
+        }
+
+        // Actualizar la cantidad de tomates en la interfaz
+        if (cantidadTomatesUsuario === 0) {
+            document.getElementById('cantidad-tomates-usuario').textContent = 'No puedes alimentar a tu dragón porque no tienes tomates!';
+        } else {
+            document.getElementById('cantidad-tomates-usuario').textContent = `Tienes: ${cantidadTomatesUsuario} tomates`;
+            document.getElementById('cantidad-tomates-dragon').textContent = `Tu dragón ha comido: ${cantidadTomatesDragon} tomates`;
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
