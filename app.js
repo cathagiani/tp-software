@@ -119,10 +119,10 @@ function obtenerImagenMascota(tipo) {
             return 'https://static.wikia.nocookie.net/dragoncity/images/c/cd/Sea_Dragon_1.png/revision/latest?cb=20130611042156';
         case 'dragon nube':
             return 'https://static.wikia.nocookie.net/dragoncity/images/f/f8/Cloud_Dragon_1.png/revision/latest?cb=20121017102829';
-        case 'dragon diente de leon':
-            return 'https://static.wikia.nocookie.net/dragoncity/images/f/ff/Dandelion_Dragon_1.png/revision/latest?cb=20130710092134';
-        case 'dragon fluorescente':
-            return 'https://static.wikia.nocookie.net/dragoncity/images/6/68/Fluorescent_Dragon_1.png/revision/latest?cb=20130709084051';
+        case 'dragon pulga messi':
+            return 'https://static.wikia.nocookie.net/dragoncity/images/4/49/Pulga_Dragon_1.png/revision/latest?cb=20140616145502';
+        case 'dragon electrico':
+            return 'https://static.wikia.nocookie.net/dragoncityos/images/d/d6/Dragon-City-Mobile-Electric-Dragon.png/revision/latest?cb=20140214174427&path-prefix=es';
         case 'dragon de tierra':
             return 'https://static.wikia.nocookie.net/dragoncity/images/c/ca/Terra_Dragon_1.png/revision/latest?cb=20200605234519';
         case 'dragon legado':

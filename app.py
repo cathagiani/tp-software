@@ -29,10 +29,12 @@ class Tomate(db.Model):
     __tablename__ = 'tomates'
     id = db.Column(db.Integer, primary_key=True)
     cantidad = db.Column(db.Integer, default=0)
+    mascota_id = db.Column(db.Integer, db.ForeignKey('pets.id'), nullable=False)
 
 # Crear las tablas
 with app.app_context():
     db.create_all()
+    db.get_engine(app, bind='granja').dispose()
 
 # Rutas para las mascotas
 @app.route('/api/pets', methods=['GET'])
