@@ -124,6 +124,10 @@ function mostrarDetallesMascota(mascota) {
     // Asignar el ID de la mascota al formulario de edición
     const formularioEdicion = document.getElementById('formulario-edicion');
     formularioEdicion.setAttribute('data-id', mascota.id);
+    document.getElementById('editar-nombre').value = mascota.name;
+    document.getElementById('editar-tipo').value = mascota.type;
+    document.getElementById('editar-genero').value = mascota.gender; // Asegúrate de que este elemento tenga el valor correcto
+
   
 }
 
@@ -223,13 +227,13 @@ function eliminarDragon(button) {
     .catch(error => {
         console.error('Error:', error);
     });
- }
+}
  
  
  
  
- // función para mostrar el formulario para cambiar los datos del dragón
- function mostrarFormularioEdicion() {
+// función para mostrar el formulario para cambiar los datos del dragón
+function mostrarFormularioEdicion() {
     const id = document.getElementById('formulario-edicion').getAttribute('data-id');
     const mascota = mascotas.find(m => m.id == id);
  
@@ -247,13 +251,13 @@ function eliminarDragon(button) {
  
     // Mostrar el formulario de edición
     document.getElementById('formulario-edicion').classList.remove('oculto');
- }
+}
  
  
  
  
- // función para editar un dragón
- function editarDragon(id, nuevosDatos) {
+// función para editar un dragón
+function editarDragon(id, nuevosDatos) {
     fetch(`http://localhost:5000/api/pets/${id}`, {
         method: 'PUT',
         headers: {
@@ -275,11 +279,11 @@ function eliminarDragon(button) {
     .catch(error => {
         console.error('Error:', error);
     });
- }
+}
  
  
- // función para confirmar los cambios en la edición de una mascota
- function confirmarEdicion() {
+// función para confirmar los cambios en la edición de una mascota
+function confirmarEdicion() {
     const id = document.getElementById('formulario-edicion').getAttribute('data-id');
     const nuevosDatos = {
         name: document.getElementById('editar-nombre').value,
@@ -289,11 +293,19 @@ function eliminarDragon(button) {
  
  
     editarDragon(id, nuevosDatos); // Llamar a la función para editar la mascota
- 
- 
+
+    // Actualizar la interfaz de usuario con los nuevos datos
+    const mascota = mascotas.find(m => m.id == id);
+    if (mascota) {
+        mascota.name = nuevosDatos.name;
+        mascota.gender = nuevosDatos.gender;
+        mascota.type = nuevosDatos.type;
+        mostrarDetallesMascota(mascota);
+    }
+
     // Ocultar el formulario de edición después de confirmar los cambios
     document.getElementById('formulario-edicion').classList.add('oculto');
- }
+}
 
 // función para cargar los tomates recolectados
 function cargarTomates() {
