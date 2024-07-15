@@ -47,6 +47,38 @@ body {
     box-shadow: 0 0 10px rgba(46, 5, 28, 0.947);
 }
 
+.informacion-principal{
+    font-family: "Fantasy", copperplate;
+    text-align:center;
+    background-color: #62f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(46, 5, 28, 0.947);
+}
+
+.dentro-info{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: black;
+    align-items: center;
+    background-color:#68ccfa;
+    border-radius: 2em; 
+}
+
+.imagen-info{
+    background-color: #62f0f0;
+    padding:20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(46, 5, 28, 0.947);
+}
+
+
+#dragones-en-adopcion{
+    text-align:center;
+    background-color: #62f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(46, 5, 28, 0.947);
+}
 .categoria h7{
     font-weight: 1000;
     color: rgb(3, 0, 0);
@@ -236,8 +268,13 @@ input {
 }
 
 .btn-group button {
+    height: 100%;
     text-align: center;
     border-color: transparent;
     background-color: rgba(96, 197, 255, 0.8);
     font-weight: 5em;
+    font-size: 1.5em; /* Tamaño de la fuente más grande */
+    padding: 15px 30px; /* Relleno para hacer los botones más grandes */
+    margin: 5px; /* Espacio entre los botones */
+    border-radius: 10px; /* Bordes redondeados */
 }

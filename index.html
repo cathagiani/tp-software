@@ -17,13 +17,20 @@
         <h1>Dragon city</h1>
         <p>¡Centro de adopción y cuidado de dragones!</p>
     </div>
-    <div class="btn-group" role="group" aria-label="Basic example">
-        <button onclick="mostrarSeccion('granja')">Granja de Tomates</button>
-        <button onclick="mostrarSeccion('lista-mascotas-adoptadas')">Tus Mascotas</button>
+    <div class="informacion-principal">
+        <h1>Sobre nuestra pagina</h1><br>
+        <div class="dentro-info">
+            <h2>En Dragon City, puedes adoptar y cuidar de tu propio dragón. Únete a nuestra comunidad de amantes de dragones y comienza tu aventura hoy mismo.</h2><br>
+            <p>Debajo de esta seccion, puedes encontrar botones que te llevaran a la aventura. Puedes acceder a tu granja de tomates, a tus mascotas adoptadas y puedes adoptar nuevos dragones. Diviertete!</p><br>
+            <div class="imagen-info">
+                <img src="https://articles-images.sftcdn.net/wp-content/uploads/sites/2/2014/08/Dragon-City.jpg" style="width:500px; height:300px;">
+            </div>
+        </div>
     </div>
-    <div class="titulo">
-        <p id="cantidad-tomates-dragon"></p>        
-        <p id="cantidad-tomates-usuario"></p>
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <button onclick="mostrarSeccionYOcultarOtras('granja')">Granja de Tomates</button>
+        <button onclick="mostrarSeccionYOcultarOtras('lista-mascotas-adoptadas')">Tus Mascotas</button>
+        <button onclick="mostrarSeccionYOcultarOtras('dragones-en-adopcion')">Adoptar Dragones</button>
     </div>
 
     <div id="granja" class="oculto">
@@ -45,6 +52,10 @@
     </div>
 
     <div id="ver-mascota" class="oculto">
+        <div class="titulo">
+            <p id="cantidad-tomates-dragon"></p>        
+            <p id="cantidad-tomates-usuario"></p>
+        </div>
         <h3>Detalles de la Mascota</h3>
             <p id="detalles-ver-mascota"></p>
             <button onclick="alimentarDragon(this)">Alimentar Dragón</button>
@@ -81,8 +92,9 @@
     </div>
 
 
-    <div class="principal">
+    <div class="oculto" id="dragones-en-adopcion">
         <h2>¿Qué dragón le gustaría adoptar hoy?</h2>
+        <button onclick="cerrarSeccion('dragones-en-adopcion')">Cerrar seccion de adopcion</button>
     <div class="categoria">    
         <h7>Dragones Comunes</h7>
         <div class="opciones-mascota">
