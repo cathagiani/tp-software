@@ -38,6 +38,17 @@ function adoptarMascota(mascota) {
     document.getElementById('alerta-adopcion').classList.remove('oculto'); 
 }
 
+//función para usar la tecla enter
+function presionar_tecla(e) {
+    if (e.key === 13) {
+        e.preventDefault();
+        finalizarAdopcion();
+        
+    }
+}
+
+window.addEventListener("keydown", presionar_tecla);
+
 // función para confirmar la adopción
 function confirmarAdopcion(confirmar) {
     document.getElementById('alerta-adopcion').classList.add('oculto');

@@ -208,7 +208,7 @@
     </div>
     <div id="formulario-adopcion" class="oculto">
         <h3>¡Personaliza tu nueva mascota!</h3>
-        <form id = "form-de-adopcion">
+        <form id="form-de-adopcion" onsubmit="event.preventDefault(); finalizarAdopcion();">
             <label for="nombre-mascota">Nombre:</label>
             <input type="text" id="nombre-mascota" name="nombre-mascota"><br><br>
             <label for="genero-mascota">Género:</label>
@@ -216,10 +216,10 @@
                 <option value="masculino">Masculino</option>
                 <option value="femenino">Femenino</option>
             </select><br><br> 
-            <button type="button" class="btn btn-outline-primary" onclick="finalizarAdopcion()">Adoptar</button>          
+            <button type="submit" class="btn btn-outline-primary">Adoptar</button>          
         </form>
-        <button onclick="cerrarSeccion('formulario-adopcion')">Cancelar adopcion</button>
-    </div>    
+        <button onclick="cerrarSeccion('formulario-adopcion')">Cancelar adopción</button>
+    </div> 
     <div id="mascota-adoptada" class="oculto">
         <h3>¡Felicitaciones por tu nueva mascota!</h3>
         <p id="detalles-mascota"></p>
