@@ -263,7 +263,7 @@ input {
     display: flex;
     justify-content: center;
     width: 100%;
-    background-color: rgba(96, 197, 255, 0.8);
+    background-color: rgba(161, 213, 243, 0.8);
     display: block;
 }
 
@@ -271,10 +271,26 @@ input {
     height: 100%;
     text-align: center;
     border-color: transparent;
-    background-color: rgba(96, 197, 255, 0.8);
+    background-color: rgba(79, 215, 233, 0.8);
     font-weight: 5em;
     font-size: 1.5em; /* Tamaño de la fuente más grande */
     padding: 15px 30px; /* Relleno para hacer los botones más grandes */
     margin: 5px; /* Espacio entre los botones */
     border-radius: 10px; /* Bordes redondeados */
 }
+
+.btn-outline-success {
+    border: 0px;
+    margin-top: 10px;
+}
+
+.btn-outline-danger {
+    border: 0px;
+    margin-top: 10px;
+}
+
+.btn-outline-secondary {
+    border: 0px;
+    margin-top: 10px;
+}
+

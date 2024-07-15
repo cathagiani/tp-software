@@ -28,27 +28,27 @@
         </div>
     </div>
     <div class="btn-group" role="group" aria-label="Basic example">
-        <button onclick="mostrarSeccionYOcultarOtras('granja')">Granja de Tomates</button>
-        <button onclick="mostrarSeccionYOcultarOtras('lista-mascotas-adoptadas')">Tus Mascotas</button>
-        <button onclick="mostrarSeccionYOcultarOtras('dragones-en-adopcion')">Adoptar Dragones</button>
+        <button type="button" class="btn btn-outline-dark" onclick="mostrarSeccionYOcultarOtras('granja')">Granja de Tomates</button>
+        <button type="button" class="btn btn-outline-dark" onclick="mostrarSeccionYOcultarOtras('lista-mascotas-adoptadas')">Tus Mascotas</button>
+        <button type="button" class="btn btn-outline-dark" onclick="mostrarSeccionYOcultarOtras('dragones-en-adopcion')">Adoptar Dragones</button>
     </div>
 
     <div id="granja" class="oculto">
         <h2>Granja de tomates</h2>
         <div class="recoleccion-tomates">
-            <button onclick="recolectarTomates()"><img src="https://static.wikia.nocookie.net/dragoncity/images/c/c0/Deus_food.png/revision/latest?cb=20200601201923" style="width:25px; height:25px;">Recolectar Tomates</button>
+            <button type="button" class="btn btn-primary" onclick="recolectarTomates()"><img src="https://static.wikia.nocookie.net/dragoncity/images/c/c0/Deus_food.png/revision/latest?cb=20200601201923" style="width:25px; height:25px;">Recolectar Tomates</button>
             <p id="cantidad-tomates">tus tomates: 0</p>
             <div class="granja-tomates">
                 <img src="https://dragoncityguia.wordpress.com/wp-content/uploads/2013/10/farm_3.png">
             </div>
         </div>
-        <button onclick="cerrarSeccion('granja')">Cerrar Granja de Tomates</button>
+        <button type="button" class="btn btn-danger" onclick="cerrarSeccion('granja')">Cerrar Granja de Tomates</button>
     </div>
 
     <div id="lista-mascotas-adoptadas" class="oculto">
         <h2>Tus Mascotas Adoptadas</h2>
         <ul id="lista-mascotas"></ul>            
-        <button onclick="cerrarSeccion('lista-mascotas-adoptadas')">Cerrar Tus Mascotas</button>
+        <button type="button" class="btn btn-outline-danger" onclick="cerrarSeccion('lista-mascotas-adoptadas')">Cerrar Tus Mascotas</button>
     </div>
 
     <div id="ver-mascota" class="oculto">
@@ -58,10 +58,11 @@
         </div>
         <h3>Detalles de la Mascota</h3>
             <p id="detalles-ver-mascota"></p>
-            <button onclick="alimentarDragon(this)">Alimentar Dragón</button>
             <img id="imagen-ver-mascota" src="" alt="Detalles de la mascota">
             <br>
-            <button type="button" class="btn btn-outline-primary" id="boton-eliminar" onclick="eliminarDragon(this)">Eliminar</button>
+            <button type="button" class="btn btn-outline-success" onclick="alimentarDragon(this)">Alimentar Dragón</button>
+            <br>
+            <button type="button" class="btn btn-outline-danger" id="boton-eliminar" onclick="eliminarDragon(this)">Eliminar</button>
             <br>
             <button type="button" class="btn btn-outline-secondary" id="boton-editar" onclick="mostrarFormularioEdicion(this)">Editar datos</button>
             <div id="formulario-edicion" class="oculto">
@@ -87,14 +88,13 @@
                     </form>
             </div>
             <br>
-            <button onclick="cerrarSeccion('ver-mascota')">Cerrar Dragon</button>
-
+            <button type="button" class="btn btn-outline-danger" onclick="cerrarSeccion('ver-mascota')">Cerrar Dragon</button>
     </div>
 
 
     <div class="oculto" id="dragones-en-adopcion">
         <h2>¿Qué dragón le gustaría adoptar hoy?</h2>
-        <button onclick="cerrarSeccion('dragones-en-adopcion')">Cerrar seccion de adopcion</button>
+        <button type="button" class="btn btn-danger" onclick="cerrarSeccion('dragones-en-adopcion')">Cerrar seccion de adopcion</button>
     <div class="categoria">    
         <h7>Dragones Comunes</h7>
         <div class="opciones-mascota">
