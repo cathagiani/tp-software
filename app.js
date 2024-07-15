@@ -322,6 +322,7 @@ function cargarTomates() {
 
 // función para recolectar tomates
 function recolectarTomates() {
+    cargarTomates();
     const cantidad = 500;
     fetch('http://localhost:5000/api/tomates', {
         method: 'POST',
