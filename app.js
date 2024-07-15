@@ -25,7 +25,7 @@ function mostrarSeccionYOcultarOtras(seccion) {
     document.querySelectorAll('div[id]').forEach(div => {
         div.classList.add('oculto');
     });
-    
+
     // mostrar la seleccionada
     document.getElementById(seccion).classList.remove('oculto');
 }
@@ -380,7 +380,10 @@ function alimentarDragon() {
         } else {
             document.getElementById('cantidad-tomates-usuario').textContent = `Tienes: ${cantidadTomatesUsuario} tomates`;
             document.getElementById('cantidad-tomates-dragon').textContent = `Tu dragón ha comido: ${cantidadTomatesDragon} tomates`;
+            // Actualizar la cantidad de tomates global en la interfaz
+            document.getElementById("cantidad-tomates").textContent = `Tomates: ${cantidadTomatesUsuario}`;
         }
+
     })
     .catch(error => {
         console.error('Error:', error);
